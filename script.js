@@ -1,5 +1,6 @@
 const grid = document.querySelector('.grid');
 const change = document.querySelector('#change');
+const errorMsg = document.querySelector('.error');
 
 function createGrid(size) {
   for (let i = 1; i <= size; i++) {
@@ -32,9 +33,14 @@ function getColor() {
 
 change.addEventListener('click', () => {
   let size = Number(prompt('Provide requirement'));
-  grid.innerHTML = '';
-  createGrid(size);
-  createTrail();
+
+  if (isNaN(size) || size > 100 || size <= 0) {
+    errorMsg.textContent = 'Provide a positive integer less than 100';
+  } else {
+    grid.innerHTML = '';
+    createGrid(size);
+    createTrail();
+  }
 });
 
 createGrid(16);
