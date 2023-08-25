@@ -40,6 +40,7 @@ change.addEventListener('click', () => {
     grid.innerHTML = '';
     createGrid(size);
     createTrail();
+    errorMsg.textContent = '';
   }
 });
 
