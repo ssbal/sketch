@@ -17,12 +17,17 @@ function createGrid(size) {
 
 function createTrail() {
   const boxes = document.querySelectorAll('.box');
+  const color = `rgb(${getColor()}, ${getColor()}, ${getColor()})`;
 
   boxes.forEach((box) => {
     box.addEventListener('mouseover', (event) => {
-      event.target.style.backgroundColor = 'orangered';
+      event.target.style.backgroundColor = color;
     });
   });
+}
+
+function getColor() {
+  return Math.floor(Math.random() * 256);
 }
 
 change.addEventListener('click', () => {
