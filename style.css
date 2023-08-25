@@ -9,6 +9,9 @@
 .grid {
   border-top: 1px solid #000;
   border-left: 1px solid #000;
+
+  height: 500px;
+  width: 500px;
 }
 
 .box {
