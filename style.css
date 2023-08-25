@@ -6,13 +6,64 @@
   font-family: monospace;
 }
 
+body {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  margin: 30px;
+}
+
+.container .controls {
+  margin-right: 30px;
+  flex: 1;
+}
+
+.container .controls h1 {
+  font-size: 40px;
+}
+
+.container .controls p {
+  margin: 20px 0;
+}
+
+.container .controls p a {
+  color: inherit;
+}
+
+.container .controls p a:hover {
+  font-weight: bold;
+}
+
+.container .controls button {
+  border: none;
+  background: #000;
+  color: #fff;
+  padding: 5px 15px;
+  border: 1px solid #000;
+}
+
+.container .controls button:hover {
+  background: transparent;
+  color: #000;
+  cursor: pointer;
+}
+
+.container .controls .error {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 .grid {
   height: 500px;
   width: 500px;
-  border: 2px solid #000;
+  border: 2px dashed #000;
 
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .row {
