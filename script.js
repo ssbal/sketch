@@ -50,8 +50,11 @@ function createTrail() {
         if (darkBlue <= 10) darkBlue = 0;
 
         event.target.style.backgroundColor = `rgb(${darkRed}, ${darkGreen}, ${darkBlue})`;
+
+        if (darkRed === 0 && darkGreen === 0 && darkBlue === 0) {
+          event.target.removeEventListener('mouseover', () => {});
+        }
       }
-      // console.log(Math.random() * 100); // remove event listener
     });
   });
 }
