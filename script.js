@@ -10,7 +10,7 @@ function createGrid(size) {
 
     for (let j = 1; j <= size; j++) {
       const box = document.createElement('div');
-      box.classList.add('class', 'box', 'box-border');
+      box.classList.add('box', 'box-border');
       row.appendChild(box);
     }
     grid.appendChild(row);
@@ -27,8 +27,18 @@ function createTrail() {
   const color = `rgb(${getColor()}, ${getColor()}, ${getColor()})`;
 
   boxes.forEach((box) => {
+    let isVisited = false;
+
     box.addEventListener('mouseover', (event) => {
-      event.target.style.backgroundColor = color;
+      if (!isVisited) {
+        event.target.style.backgroundColor = color;
+        isVisited = true;
+      } else if (isVisited) {
+        /* remove event listener after fulfilling the task to improve speed */
+
+        event.target.style.backgroundColor = 'red';
+        console.log(Math.random() * 100);
+      }
     });
   });
 }
