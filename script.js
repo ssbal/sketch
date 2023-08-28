@@ -1,5 +1,6 @@
 const grid = document.querySelector('.grid');
 const change = document.querySelector('#change');
+const gridToggle = document.querySelector('#grid');
 const errorMsg = document.querySelector('.error');
 
 function createGrid(size) {
@@ -9,11 +10,15 @@ function createGrid(size) {
 
     for (let j = 1; j <= size; j++) {
       const box = document.createElement('div');
-      box.setAttribute('class', 'box');
+      box.classList.add('class', 'box', 'box-border');
       row.appendChild(box);
     }
     grid.appendChild(row);
   }
+
+  gridToggle.addEventListener('click', () => {
+    boxes.forEach((box) => box.classList.toggle('box-border'));
+  });
 }
 
 function createTrail() {
