@@ -24,27 +24,44 @@ function createGrid(size) {
 
 function createTrail() {
   const boxes = document.querySelectorAll('.box');
-  const color = `rgb(${getColor()}, ${getColor()}, ${getColor()})`;
+  let [red, green, blue] = [getColor(), getColor(), getColor()];
 
   boxes.forEach((box) => {
     let isVisited = false;
-
     box.addEventListener('mouseover', (event) => {
       if (!isVisited) {
-        event.target.style.backgroundColor = color;
+        event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         isVisited = true;
       } else if (isVisited) {
-        /* remove event listener after fulfilling the task to improve speed */
+        const bgColorLength = event.target.style.backgroundColor.length;
 
-        event.target.style.backgroundColor = 'red';
-        console.log(Math.random() * 100);
+        const bgColorString = event.target.style.backgroundColor
+          .slice(4, bgColorLength - 1)
+          .split(', ');
+
+        let [darkRed, darkGreen, darkBlue] = [
+          getDarkColor(+bgColorString[0]),
+          getDarkColor(+bgColorString[1]),
+          getDarkColor(+bgColorString[2]),
+        ];
+
+        if (darkRed <= 10) darkRed = 0;
+        if (darkGreen <= 10) darkGreen = 0;
+        if (darkBlue <= 10) darkBlue = 0;
+
+        event.target.style.backgroundColor = `rgb(${darkRed}, ${darkGreen}, ${darkBlue})`;
       }
+      // console.log(Math.random() * 100); // remove event listener
     });
   });
 }
 
 function getColor() {
   return Math.floor(Math.random() * 256);
+}
+
+function getDarkColor(color) {
+  return color * 0.9;
 }
 
 change.addEventListener('click', () => {
