@@ -2,6 +2,10 @@
 
 A minimalistic sketchpad.
 
+## Live Preview 🐱‍👤
+
+[Click here](https://ssbal.github.io/sketch) to view app in action.
+
 ## Tech Stack
 
 - JavaScript
