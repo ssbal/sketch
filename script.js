@@ -16,6 +16,7 @@ function createGrid(size) {
     grid.appendChild(row);
   }
 
+  const boxes = document.querySelectorAll('.box');
   gridToggle.addEventListener('click', () => {
     boxes.forEach((box) => box.classList.toggle('box-border'));
   });
